@@ -1,2 +1,2 @@
 # stunning-octo-guacamole
-ğ
+jump search de var am kod çalışmıyor :(
