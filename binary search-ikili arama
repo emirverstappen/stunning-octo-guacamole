@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+void BinarySearch(int dizi[], int aranan) {
+	int buyuk = 10;
+	int kucuk = -1;
+	bool ara = false;
+	while (buyuk-kucuk>1)
+	{
+		int kontrol = (buyuk + kucuk) / 2;
+		if (dizi[kontrol] == aranan)
+		{
+			cout << "aranan deger " << kontrol << ". indiste bulundu. ";
+			ara = true;
+			break;
+		}
+		else if (dizi[kontrol]<aranan)
+		{
+			kucuk = kontrol;
+		}
+		else
+		{
+			buyuk = kontrol;
+		}
+	}
+	if (ara == false)
+	{
+		cout << "deger bulunamadi.";
+	}
+
+}
+int main()
+{
+	int aranan;
+	cout << "aranacak degeri grinizi: ";
+	cin >> aranan;
+	int dizi[10] = { 1,4,7,11,18,26,31,49,72,99 };
+	BinarySearch(dizi, aranan);
+}
