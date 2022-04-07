@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+void InterpolationSearch(int dizi[], int aranan) {
+	int sol = 9;
+	int sag = 0;
+	bool ara = false;
+	while (sol - sag > 1)
+	{
+		int orta = sol + (aranan - dizi[sol]) * (sag - sol) / (dizi[sag] - dizi[sol]);
+		if (dizi[orta] == aranan)
+		{
+			cout << "aranan deger " << orta << ". indiste bulundu. ";
+			ara = true;
+			break;
+		}
+		else if (dizi[orta] < aranan)
+		{
+			sag = orta;
+		}
+		else
+		{
+			sol = orta;
+		}
+	}
+	if (ara == false)
+	{
+		cout << "deger bulunamadi.";
+	}
+
+}
+int main()
+{
+	int aranan;
+	cout << "aranacak degeri grinizi: ";
+	cin >> aranan;
+	int dizi[10] = { 2,4,6,9,13,21,33,46,73,91 };
+	InterpolationSearch(dizi, aranan);
+}
