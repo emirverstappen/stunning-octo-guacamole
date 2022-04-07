@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int jumpSearch(int dizi[], int aranan, int boyut) {
+    int start = 0;
+    int end = sqrt(boyut);
+    int indis = 1;
+    while (dizi[end] <= aranan && end < boyut)
+    {
+        start = end;
+        end += sqrt(boyut);
+        if (end > boyut - 1) {
+            end = boyut;
+        }
+    }
+    for (int i = start; i < end; i++)
+    {
+        if (dizi[i] = aranan)
+        {
+            cout << i << ". indiste bulundu";
+            return 1;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    int dizi[10] = {3,2,1,6,4,9,4,8,7,12};
+    int boyut = 10;
+    int aranan;
+    printf("aranan sayi giriniz: ");
+    cin >> aranan;
+    jumpSearch(dizi, aranan, boyut);
+}
